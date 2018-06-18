@@ -7,9 +7,9 @@ import { ApolloProvider } from 'react-apollo';
 import App from 'components/App';
 import registerServiceWorker from 'services/registerServiceWorker';
 
-// TODO: url should be set via webpack config parameter
 const client = new ApolloClient({
-  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+  // url is set via environment parameter in .env or .env.local file
+  uri: process.env.REACT_APP_GRAPHQL_URL 
 });
 
 // This is the starting point to the react application.  It will 
