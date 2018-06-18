@@ -22,17 +22,18 @@ type MyState = {}; // internal state of this component
  * Component used to render GraphQL errors.
  */
 export default class GraphQLError extends Component<MyProps, MyState> {
-    render() {
-        return (
-          <div>
-            <div className={header}>
-              <i className={cx('fa fa-exclamation-triangle', css`margin-right: 5px;`)} aria-hidden="true" />
-              GraphQL Error
-            </div>
-            <div>{this.props.message}</div>
-            <div className={errorMessage}>{this.props.error.message}</div>
-            <div>{this.props.error.stack}</div>
-          </div>
-        );
-    }
+
+  render() {
+    return (
+      <div>
+        <div className={header}>
+          <i className={cx('fa fa-exclamation-triangle', css`margin-right: 5px;`)} aria-hidden="true" />
+          GraphQL Error
+        </div>
+        <div>{this.props.message}</div>
+        <div className={errorMessage}>{this.props.error.message}</div>
+        <div>{this.props.error.stack}</div>
+      </div>
+    );
+  }
 }
