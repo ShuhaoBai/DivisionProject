@@ -7,3 +7,5 @@ export default class Browse extends Component {
         );
     }
 }
+
+// Connect with the Apollo Client so I can directly read values from the store (InMemoryCache)

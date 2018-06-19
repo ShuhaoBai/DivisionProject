@@ -5,6 +5,7 @@ import { Menu, Dropdown } from 'antd';
 import { css } from 'emotion';
 import GraphQLError from 'components/core/GraphQLError';
 import { flexRow } from 'styles/base';
+import * as c from 'services/constants';
 
 // Component styles
 const dropdownContainer = css`
@@ -27,7 +28,7 @@ export default class Search extends Component<MyProps, MyState> {
   }
   
   renderSearch() {
-    if (this.state.queryBy === 'Gene') {
+    if (this.state.queryBy === c.TYPE_GENE) {
       return this.renderGeneSearch();
 
     } else {
@@ -72,10 +73,10 @@ export default class Search extends Component<MyProps, MyState> {
   render() {
     const menu = (
       <Menu onClick={this.onClick}>
-        <Menu.Item key="Gene">Gene</Menu.Item>
-        <Menu.Item key="Metabolite">Metabolite</Menu.Item>
-        <Menu.Item key="Functional Category">Functional Category</Menu.Item>
-        <Menu.Item key="Metabolic Pathway">Metabolic Pathway</Menu.Item>
+        <Menu.Item key={c.TYPE_GENE}>{c.TYPE_GENE}</Menu.Item>
+        <Menu.Item key={c.TYPE_METABOLITE}>{c.TYPE_METABOLITE}</Menu.Item>
+        <Menu.Item key={c.TYPE_FUNCTIONAL_CATEGORY}>{c.TYPE_FUNCTIONAL_CATEGORY}</Menu.Item>
+        <Menu.Item key={c.TYPE_METABOLIC_PATHWAY}>{c.TYPE_METABOLIC_PATHWAY}</Menu.Item>
       </Menu>
     );
     return (

@@ -1,7 +1,9 @@
 Plugins to install:
 
-https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
-https://marketplace.visualstudio.com/items?itemName=xyz.local-history
+- https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
+- https://marketplace.visualstudio.com/items?itemName=xyz.local-history
+- https://marketplace.visualstudio.com/items?itemName=rexebin.classio
+- https://marketplace.visualstudio.com/items?itemName=patrys.vscode-code-outline
 
 These are my user settings:
 ```
