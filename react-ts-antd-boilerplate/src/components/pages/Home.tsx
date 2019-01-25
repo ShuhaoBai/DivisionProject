@@ -3,6 +3,7 @@ import { css } from 'emotion';
 import {colorDarkGreen} from 'styles/base';
 import styled from 'react-emotion';
 import picture from 'images/knowledge_graph.jpg';
+import HelloWorld from 'components/core/HelloWorld';
 
 const section: string = css`
     margin-bottom: 25px;
@@ -46,11 +47,15 @@ export default class Home extends Component {
           <div className={section}>
             <div>
               This application provides the following capabilities
-          </div>
+            </div>
             <ul>
               <li>TODO: Search</li>
               <li>TODO: Browse Graph</li>
             </ul>
+          </div>
+          <div className={section}>
+            {/* Testing importing a non-tsx component to make sure it's backwards compatible */}
+            <HelloWorld />
           </div>
         </div>
         <Image src={picture} />
