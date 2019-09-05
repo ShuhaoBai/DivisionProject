@@ -3,18 +3,14 @@ import { Menu } from 'antd';
 import { css } from 'emotion';
 import { NavLink, withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import { ThemeService } from 'services/interfaces/ThemeService';
+import theme from '@extensions/services/Theme';
 
-type MyProps = RouteComponentProps & { 
-    themeService: ThemeService
- };
+type MyProps = RouteComponentProps & { };
 type MyState = { };
 
 export class Header extends React.Component<MyProps, MyState> {
 
     getHeaderStyles() : string {
-        const themeService: ThemeService = this.props.themeService;
-
         return css`
             padding: 5px 20px 5px 10px;
             display: flex;
@@ -40,20 +36,20 @@ export class Header extends React.Component<MyProps, MyState> {
                 }
                 .menu {
                     line-height: 20px;
-                    background: ${themeService.getColors().primary};
-                    border-bottom-color: ${themeService.getColors().primary};
+                    background: ${theme.getColors().primary};
+                    border-bottom-color: ${theme.getColors().primary};
                     border-radius: 4px;
                     li:first-child {
                       border-radius: 4px 0 0 4px;
                     }
                     li {
                       &.ant-menu-item-selected {
-                        background-color: ${themeService.getColors().textSecondary} !important;
+                        background-color: ${theme.getColors().textSecondary} !important;
                         a {
                          font-weight: 500;
-                          color: ${themeService.getColors().text};
+                          color: ${theme.getColors().text};
                           &:hover {
-                            color: ${themeService.getColors().text};
+                            color: ${theme.getColors().text};
                           }
                         }
                       }
@@ -68,11 +64,9 @@ export class Header extends React.Component<MyProps, MyState> {
     }
 
     render() {
-        const themeService: ThemeService = this.props.themeService;
-        console.log('render');
         return (
             <div className={this.getHeaderStyles()}>
-                <img className="image" src={themeService.getLogo()} alt="logo" />
+                <img className="image" src={theme.getLogo()} alt="logo" />
                 <div className="title-container">
                     <div className="title">{this.getTitle()}</div>
                     <Menu

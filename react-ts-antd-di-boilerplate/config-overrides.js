@@ -63,7 +63,8 @@ module.exports = override(
   fixPublicPath(),
   fixOutputFilename(),
   addWebpackAlias({
-    ['@extensions']: path.resolve(__dirname, extensionModulePath)
+    ['@extensions']: path.resolve(__dirname, extensionModulePath),
+    ['@default']: path.resolve(__dirname, 'src/extensions/default/'),
   }),
   logConfig() //<--- uncomment this if you need to log the webpack config for debugging
 );

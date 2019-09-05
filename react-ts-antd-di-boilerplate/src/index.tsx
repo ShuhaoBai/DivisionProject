@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'components/App';
-import { InjectionProvider, appContainer } from 'services/container';
-import * as serviceWorker from 'services/serviceWorker';
+import { configure } from 'mobx';
+import { Provider } from 'mobx-react';
+import App from '@default/components/App';
+import employeeService from '@extensions/services/EmployeeService';
+import * as serviceWorker from '@default/services/serviceWorker';
 
+configure({
+    enforceActions: 'observed'
+});
 
-ReactDOM.render(
-    <InjectionProvider container={appContainer}>
+// Services that will be provided to components
+const services = {
+    employeeService
+}
+
+ReactDOM.render((
+    <Provider {...services}>
         <App />
-    </InjectionProvider>, 
-document.getElementById('root')
-);
+    </Provider>
+), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

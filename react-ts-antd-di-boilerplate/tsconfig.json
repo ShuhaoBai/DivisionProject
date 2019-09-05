@@ -30,9 +30,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "emitDecoratorMetadata": true,
-    "types": [
-      "reflect-metadata"
-    ],
+    "types": [],
     "noEmit": true
   },
   "exclude": [
