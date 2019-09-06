@@ -8,7 +8,7 @@ export default class Search extends React.Component<MyProps, MyState> {
  
   render() {
     return (
-      <div className={theme.getPageTitleStyle()}>Search Page</div>
+      <theme.PageTitle>Search Page</theme.PageTitle>
     );
   }
 }

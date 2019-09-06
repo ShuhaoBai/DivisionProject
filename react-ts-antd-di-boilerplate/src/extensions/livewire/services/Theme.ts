@@ -1,5 +1,5 @@
 import { Theme as DefaultTheme }  from '@default/services/Theme';
-import logo from '@extensions/resources/logo.png';
+import logoImage from '@extensions/resources/logo.png';
 
 class Theme extends DefaultTheme {
 
@@ -9,12 +9,11 @@ class Theme extends DefaultTheme {
     // Override colors
     this.colors.primary = '#255859';
     this.colors.textSecondary = '#87babe';
+
+    // Override logo image
+    this.logo = logoImage;
   }
 
-  getLogo() {
-    return logo;
-  }
-  
 }
 
 export default new Theme();

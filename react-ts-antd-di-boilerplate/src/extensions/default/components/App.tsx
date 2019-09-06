@@ -8,7 +8,8 @@ import Home from '@default/components/page/Home';
 import Search from '@default/components/page/Search';
 import Browse from '@default/components/page/Browse'
 import theme from '@extensions/services/Theme';
-import Header from '@extensions/components/core/Header';
+import Header from '@extensions/components/nav/Header';
+import Flexbox from '@default/components/core/Flexbox';
 
 type MyProps = {
     employeeService: IEmployeeService
@@ -30,19 +31,18 @@ export default class App extends React.Component<MyProps, MyState> {
 
     render() {
         const appStyle = css`
-            font-family: ${theme.getFonts().base};
-            font-size: ${theme.getFonts().sizeDefault};
+            font-family: ${theme.fonts.base};
+            font-size: ${theme.fonts.sizeDefault};
             width: 100%;
-            ${theme.getFlexboxStyle('column', 'flex-start')}
-            flex: 1;
         `;
 
         const mainStyle = css`
             padding-left: 100px;
+            max-width: 1058px;
         `;
 
         return (
-            <div className={appStyle}>
+            <Flexbox className={appStyle} flexDirection="column" flex={1}>
                 <Router>
                     <Header />
                     <main className={mainStyle}>
@@ -55,7 +55,7 @@ export default class App extends React.Component<MyProps, MyState> {
                         <div className="hello-box">EXAMPLE: styled with 'less' and antd 'less' variables</div>
                     </main>
                 </Router>
-            </div>
+            </Flexbox>
         );
     }
 }

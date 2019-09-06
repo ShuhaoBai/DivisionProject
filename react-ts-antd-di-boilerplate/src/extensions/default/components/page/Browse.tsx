@@ -8,7 +8,7 @@ export default class Browse extends React.Component<MyProps, MyState> {
 
     render() {
         return (
-            <div className={theme.getPageTitleStyle()}>Browse Page</div>
+            <theme.PageTitle>Browse Page</theme.PageTitle>
         );
     }
 }

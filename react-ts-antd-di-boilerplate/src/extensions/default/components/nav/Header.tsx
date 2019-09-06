@@ -36,20 +36,20 @@ export class Header extends React.Component<MyProps, MyState> {
                 }
                 .menu {
                     line-height: 20px;
-                    background: ${theme.getColors().primary};
-                    border-bottom-color: ${theme.getColors().primary};
+                    background: ${theme.colors.primary};
+                    border-bottom-color: ${theme.colors.primary};
                     border-radius: 4px;
                     li:first-child {
                       border-radius: 4px 0 0 4px;
                     }
                     li {
                       &.ant-menu-item-selected {
-                        background-color: ${theme.getColors().textSecondary} !important;
+                        background-color: ${theme.colors.textSecondary} !important;
                         a {
                          font-weight: 500;
-                          color: ${theme.getColors().text};
+                          color: ${theme.colors.text};
                           &:hover {
-                            color: ${theme.getColors().text};
+                            color: ${theme.colors.text};
                           }
                         }
                       }
@@ -66,7 +66,7 @@ export class Header extends React.Component<MyProps, MyState> {
     render() {
         return (
             <div className={this.getHeaderStyles()}>
-                <img className="image" src={theme.getLogo()} alt="logo" />
+                <img className="image" src={theme.logo} alt="logo" />
                 <div className="title-container">
                     <div className="title">{this.getTitle()}</div>
                     <Menu

@@ -11,7 +11,7 @@ process.traceDeprecation = true;
  */
 const logConfig = () => (config) => {
   const data = JSON.stringify(process.env, null, 2) + "\n\n" + JSON.stringify(config, null, 2);
-  fs.writeFile('webpack-config.txt', data, (err) => {
+  fs.writeFile('webpack-config-log.json', data, (err) => {
     // In case of a error throw err. 
     if (err) throw err;
   })
