@@ -6,8 +6,8 @@ import { IEmployeeService, Status } from '@default/services/IEmployeeService';
 const urlBase = process.env.REACT_APP_SERVER_BASE_URL;
 
 export class EmployeeService implements IEmployeeService {
-	@observable protected employees: Map<string, Employee> = observable.map<string, Employee>();
-  @observable protected status: Status = Status.Uninitialized;
+	@observable employees: Map<string, Employee> = observable.map<string, Employee>();
+  @observable status: Status = Status.Uninitialized;
 
   @action	async loadEmployees() {
     const url = `${urlBase}/employees`;
@@ -37,24 +37,12 @@ export class EmployeeService implements IEmployeeService {
     }
   }
 
-	getEmployees() {
-		return this.employees;
-  }
-
-  getEmployee(employeeId: string): Employee | undefined {
-    return this.employees.get(employeeId);
-  }
-
   @action addEmployee(employee: Employee) {
-    this.employees.set(employee.getId(), employee);
+    this.employees.set(employee.id, employee);
   }
 
   @action deleteEmployee(employeeId: string): void {
     this.employees.delete(employeeId);
-  }
-
-  getStatus(): Status {
-    return this.status;
   }
 
   @action setStatus(status: Status): void {

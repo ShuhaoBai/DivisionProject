@@ -1,4 +1,4 @@
-import {observable, computed, action} from 'mobx';
+import { observable, action, computed } from 'mobx';
 
 export default class Employee {
 
@@ -14,7 +14,7 @@ export default class Employee {
         this.description = description;
 	}
 
-	@computed get toJSON(): object {
+	@computed get toJSON(): any {
 		return {
 			id: this.id,
             name: this.name,
@@ -22,30 +22,14 @@ export default class Employee {
             description: this.description
 		}
     }
-    
-    getId(): string {
-        return this.id;
-    }
-    
-    getName(): string {
-        return this.name;
-    }
 
 	@action	setName(name: string): void {
 		this.name = name;
-    }
-    
-    getAge(): string {
-        return this.age;
     }
 
 	@action	setAge(age: string): void {
 		this.age = age;
 	}
-
-    getDescription(): string | null {
-        return this.description;
-    }
 
 	@action	setDescription(description: string): void {
 		this.description = description;

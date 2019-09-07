@@ -10,7 +10,7 @@ import theme from '@extensions/services/Theme';
 type MyProps = {
     employeeService: IEmployeeService
 };
-type MyState = { 
+type MyState = {
     selectedEmployee: string | null
 };
 
@@ -41,25 +41,44 @@ export default class Home extends React.Component<MyProps, MyState> {
     }
 
     renderItems() {
+        let employeeCard = <div/>;
 
-        const employees = this.props.employeeService.getEmployees();
+        if (this.state.selectedEmployee) {
+            const employee = this.props.employeeService.employees.get(this.state.selectedEmployee);
+
+            if (employee) {
+                employeeCard = <EmployeeCard employee={employee} />
+            }
+        }
+        
+        const flex = css`
+            flex: 1;
+        `;
+        const style = css`
+            color: ${theme.colors.text};
+            border: 1px solid ${theme.colors.textSecondary};
+            flex: 1;
+            height: 100%;
+            min-height: 100%;
+        `;
+
         return (
-            <Flexbox flexDirection="row" flex={1}>
+            <Flexbox flexDirection="row" className={style}>
                 <div>
-                    <EmployeeList employees={employees}
+                    <EmployeeList employees={this.props.employeeService.employees}
                         selectedEmployee={this.state.selectedEmployee}
                         onSelectedEmployeeChanged={this.onSelectedEmployeeChanged} />
                 </div>
-                <div className={css`flex: 1;`}>
-                    <EmployeeCard selectedEmployee={this.state.selectedEmployee} />
+                <div className={flex}>
+                    {employeeCard}
                 </div>
             </Flexbox>
-        ); 
+        );
     }
 
     render() {
         let content;
-        const status = this.props.employeeService.getStatus();
+        const status = this.props.employeeService.status;
 
         if (status === Status.Error) {
             content = this.renderError();
@@ -68,11 +87,11 @@ export default class Home extends React.Component<MyProps, MyState> {
             content = this.renderLoading();
 
         } else {
-           content = this.renderItems();
+            content = this.renderItems();
         }
 
         return (
-            <Flexbox flexDirection="column">         
+            <Flexbox flexDirection="column">
                 <theme.PageTitle>Employees</theme.PageTitle>
                 {content}
             </Flexbox>

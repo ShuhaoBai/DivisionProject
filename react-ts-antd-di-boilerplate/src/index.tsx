@@ -15,6 +15,13 @@ const services = {
     employeeService
 }
 
+// Adding services to the global namespace for easy debugging
+declare global {
+    interface Window { App: any; }
+}
+window.App = window.App || {};
+window.App.services = services;
+
 ReactDOM.render((
     <Provider {...services}>
         <App />

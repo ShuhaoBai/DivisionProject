@@ -7,33 +7,34 @@ import EmployeeItem from '@default/components/employee/EmployeeItem';
 import theme from '@extensions/services/Theme';
 
 
-type MyProps = { 
-  employees: Map<string, Employee>,
-  employeeService: IEmployeeService,
-  selectedEmployee: string | null,
-  onSelectedEmployeeChanged: (employeeId: string) => void
+type MyProps = {
+    employees: Map<string, Employee>,
+    employeeService: IEmployeeService,
+    selectedEmployee: string | null,
+    onSelectedEmployeeChanged: (employeeId: string) => void
 };
-type MyState = { };
+type MyState = {};
 
 @observer
-export default class EmployeeCard extends React.Component<MyProps, MyState> {
+export default class EmployeeList extends React.Component<MyProps, MyState> {
     // We have to set a default props value for all props injected by mobx or else component will show a missing prop error when rendered
     static defaultProps = {
         employeeService: null
     }
-    
+
     render() {
         const wrapperStyle = css`
             background-color: ${theme.colors.textSecondary};
         `;
 
-        const list : any[] = [];
+        const list: any[] = [];
+
         this.props.employees.forEach((employee: Employee) => {
-            const selected = employee.getId() === this.props.selectedEmployee;
-            list.push( 
-                <EmployeeItem key={employee.getId()} 
+            const selected = employee.id === this.props.selectedEmployee;
+            list.push(
+                <EmployeeItem key={employee.id}
                     onSelectedEmployeeChanged={this.props.onSelectedEmployeeChanged}
-                    employee={employee} 
+                    employee={employee}
                     selected={selected} />
             );
         });

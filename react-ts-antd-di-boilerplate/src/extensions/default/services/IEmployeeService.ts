@@ -8,11 +8,11 @@ export enum Status {
 }
 
 export interface IEmployeeService {
+    employees: Map<string, Employee>;
+    status: Status;
+
     loadEmployees(): void;
-    getEmployees(): Map<string, Employee>;
-    getEmployee(employeeId: string): Employee | undefined;
     addEmployee(employee: Employee): void;
     deleteEmployee(employeeId: string): void;
-    getStatus(): Status;
     setStatus(status: Status): void;
 }

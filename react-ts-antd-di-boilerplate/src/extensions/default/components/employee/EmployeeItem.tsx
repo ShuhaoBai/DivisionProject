@@ -16,7 +16,7 @@ type MyState = { };
 export default class EmployeeCard extends React.Component<MyProps, MyState> {
 
     onSelectedEmployeeChanged = (event: React.MouseEvent<HTMLElement>) => {
-        this.props.onSelectedEmployeeChanged(this.props.employee.getId());
+        this.props.onSelectedEmployeeChanged(this.props.employee.id);
     }
 
     render() {
@@ -40,7 +40,7 @@ export default class EmployeeCard extends React.Component<MyProps, MyState> {
         const employee = this.props.employee;
         return (
             <div className={itemStyle} onClick={this.onSelectedEmployeeChanged}>
-                {employee.getName()}
+                {employee.name}
             </div>
         );
     }
