@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {  
+    "paths": {
+      "@extensions/*": ["extensions/default/*"],
+      "@default/*": ["extensions/default/*"]
+    }
+  }
+}

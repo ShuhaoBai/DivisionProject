@@ -28,4 +28,3 @@ yarn-error.log*
 
 # extension-specific
 tsconfig.paths.json
-.env.local

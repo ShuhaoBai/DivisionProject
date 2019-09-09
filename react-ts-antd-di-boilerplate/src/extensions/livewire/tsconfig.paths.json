@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {  
+    "paths": {
+      "@extensions/*": ["extensions/livewire/*"],
+      "@default/*": ["extensions/default/*"]
+    }
+  }
+}
