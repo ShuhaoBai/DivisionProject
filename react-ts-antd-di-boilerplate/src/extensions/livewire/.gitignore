@@ -1,5 +1,0 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Override parent ignore rules - we want these files to be checked in
-!.env.local
-!tsconfig.paths.json
