@@ -1,9 +1,10 @@
 // NPM packages
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useObserver } from 'mobx-react';
+import axios from 'axios';
 
 // All other imports
 import { useServices } from 'services';
@@ -34,6 +35,13 @@ export default function ComponentName(
   const { className } = props;
   const classes = useStyles(props);
   const { dummyService } = useServices();
+
+  useEffect(() => {
+    axios
+      .get('/wp-json/wp/v2/posts')
+      .then((res) => res.data)
+      .then((res) => console.log(res));
+  });
   return useObserver(() => (
     <div className={clsx(classes.root, className)}>
       <Typography variant="h4">Hello from App!</Typography>

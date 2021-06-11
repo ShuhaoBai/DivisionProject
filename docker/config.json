@@ -1,0 +1,8 @@
+{
+  "proxies": {
+    "default": {
+      "httpsProxy": "http://proxy01.pnl.gov:3128",
+      "noProxy": "*.pnl.gov,*.pnnl.gov,127.0.0.1"
+    }
+  }
+}
