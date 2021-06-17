@@ -22,7 +22,53 @@ export interface IPostContent {
   meta: string[];
   categories: number[];
   tags: number[];
+  acf: ACF;
   _links: Links;
+  _embedded: Embedded;
+}
+
+export interface Embedded {
+  'wp:featuredmedia': Media[];
+}
+
+export interface Media {
+  id: number;
+  slug: string;
+  title: Rendered;
+  caption: Rendered;
+  alt_text: string;
+  media_details: MediaDetails;
+  source_url: string; //<<<<-- this is what we need to render post image
+}
+
+export interface MediaDetails {
+  width: number;
+  height: number;
+  file: string;
+  sizes: MediaSizes;
+}
+
+export interface MediaSizes {
+  medium: ImageSize;
+  large: ImageSize;
+  thumbnail: ImageSize;
+  medium_large: ImageSize;
+}
+
+export interface ImageSize {
+  file: string;
+  width: number;
+  height: number;
+  mime_type: string;
+  source_url: string;
+}
+
+export interface Rendered {
+  rendered: string;
+}
+
+export interface ACF {
+  carousel_title: string;
 }
 
 export interface Links {
@@ -90,7 +136,9 @@ export default class Post {
   meta: string[];
   categories: number[];
   tags: number[];
+  acf: ACF;
   _links: Links;
+  _embedded: Embedded;
   constructor(data: {
     id: number;
     date: string;
@@ -115,7 +163,9 @@ export default class Post {
     meta: string[];
     categories: number[];
     tags: number[];
+    acf: ACF;
     _links: Links;
+    _embedded: Embedded;
   }) {
     this.id = data.id;
     this.date = data.date;
@@ -140,6 +190,8 @@ export default class Post {
     this.meta = data.meta;
     this.categories = data.categories;
     this.tags = data.tags;
+    this.acf = data.acf;
     this._links = data._links;
+    this._embedded = data._embedded;
   }
 }

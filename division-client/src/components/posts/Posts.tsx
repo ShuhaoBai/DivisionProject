@@ -1,10 +1,11 @@
 import React from 'react';
 import Post from '../../models/Post';
-import { fetchWpPost } from '../../services/FetchService';
+import { fetchWpPosts } from '../../services/FetchService';
 
 export interface IPostsProps {}
 export interface IPostsState {
   posts: Post[];
+  // postsContent: Post[];
   isLoading: boolean;
 }
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -13,6 +14,7 @@ class Posts extends React.Component<IPostsProps, IPostsState> {
     super(props);
     this.state = {
       posts: [],
+      // postsContent: [],
       isLoading: false,
     };
   }
@@ -21,7 +23,7 @@ class Posts extends React.Component<IPostsProps, IPostsState> {
     this.setState({
       isLoading: true,
     });
-    fetchWpPost().then((result) =>
+    fetchWpPosts().then((result) =>
       this.setState({
         posts: result,
         isLoading: false,

@@ -1,16 +1,16 @@
 // NPM packages
 import React from 'react';
 import clsx from 'clsx';
-import { Typography, Button } from '@material-ui/core';
+// import { Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useObserver } from 'mobx-react';
 import Home from './page/Home';
 import Posts from './posts/Posts';
 
 // All other imports
-import { useServices } from 'services';
+// import { useServices } from 'services';
 import { UseStyles } from 'styles/utilityTypes';
-import DoubleItButton from './DoubleItButton';
+// import DoubleItButton from './DoubleItButton';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useStyles = makeStyles(() => ({
@@ -35,13 +35,13 @@ export default function ComponentName(
 ): React.ReactElement | null {
   const { className } = props;
   const classes = useStyles(props);
-  const { dummyService } = useServices();
+  // const { dummyService } = useServices();
 
   return useObserver(() => (
     <div className={clsx(classes.root, className)}>
       <Home />
       <Posts />
-      <Typography variant="h4">Hello from App!</Typography>
+      {/* <Typography variant="h4">Hello from App!</Typography>
       <Typography>Dummy Value: {dummyService.dummyValue}</Typography>
       <div className={classes.buttonBar}>
         <Button
@@ -59,7 +59,7 @@ export default function ComponentName(
           Subtract One
         </Button>
         <DoubleItButton />
-      </div>
+      </div> */}
     </div>
   ));
 }
