@@ -35,31 +35,10 @@ export default function ComponentName(
 ): React.ReactElement | null {
   const { className } = props;
   const classes = useStyles(props);
-  // const { dummyService } = useServices();
-
   return useObserver(() => (
     <div className={clsx(classes.root, className)}>
       <Home />
       <Posts />
-      {/* <Typography variant="h4">Hello from App!</Typography>
-      <Typography>Dummy Value: {dummyService.dummyValue}</Typography>
-      <div className={classes.buttonBar}>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={() => dummyService.increment()}
-        >
-          Add One
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={() => dummyService.decrement()}
-        >
-          Subtract One
-        </Button>
-        <DoubleItButton />
-      </div> */}
     </div>
   ));
 }

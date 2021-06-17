@@ -1,6 +1,7 @@
 import React from 'react';
-import { fetchWpPostsContent } from '../../services/FetchService';
+import { fetchWpCarouselsContent } from '../../services/FetchService';
 import Post from '../../models/Post';
+import CarouselCore from '../carousel/CarouselCore';
 import {
   withStyles,
   WithStyles,
@@ -42,12 +43,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       isLoading: false,
     };
   }
+
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   componentDidMount() {
     this.setState({
       isLoading: true,
     });
-    fetchWpPostsContent().then((result) =>
+    fetchWpCarouselsContent().then((result) =>
       this.setState({
         postContent: result,
         isLoading: false,
@@ -62,20 +64,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     }
     return (
       <React.Fragment>
-        <h1>This is home page, try to render images from wordpress posts.</h1>
-        {postContent.map((post) => {
-          return (
-            <div>
-              <h1 key={post.id}>post id from home is {post.id}</h1>
-              <img
-                key={post.id}
-                className="project-img"
-                alt=""
-                src={post._embedded['wp:featuredmedia'][0].source_url}
-              />
-            </div>
-          );
-        })}
+        <CarouselCore postContent={postContent} />
       </React.Fragment>
     );
   }
