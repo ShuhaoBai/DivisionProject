@@ -1,8 +1,8 @@
 //🔥 copied from dap/dap/client/src/dapclient/services/Theme.ts
 
 import { createMuiTheme } from '@material-ui/core/styles';
-import 'themeTyping';
-import 'fontsource-ibm-plex-mono';
+// import themeTyping from '../themeTyping';
+// import 'fontsource-ibm-plex-mono';
 
 const theme = createMuiTheme({
   spacing: (factor) => `${8 * factor}px`,
