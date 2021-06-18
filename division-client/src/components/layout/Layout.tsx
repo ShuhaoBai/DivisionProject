@@ -1,6 +1,6 @@
 import React from 'react';
 import PNNLHeader from './PNNLHeader';
-import Footer from './Footer';
+import PNNLFooter from './PNNLFooter';
 
 interface Props {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
     <>
       <PNNLHeader />
       {children}
-      <Footer />
+      <PNNLFooter />
     </>
   );
 }
