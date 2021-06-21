@@ -1,101 +1,296 @@
+a {
+  background-color: transparent;
+  color: white;
+  outline-offset: 0.125em;
+  text-decoration: none;
+  /* -webkit-text-decoration-skip: objects; */
+}
+h1 {
+  font-size: 2.1875rem;
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin-bottom: 0.5em;
+}
+
 .layout-container {
-  font-size: larger;
-  border-top: 8x solid #d77900;
-}
-
-.border {
-  border-top: 8x solid #d77900;
-}
-
-.l-header {
-  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 7%);
-  border-top: 8x solid #d77900;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
-  width: 100%;
-  z-index: 3;
-  background: white;
-  top: 0;
-  position: fixed;
   display: block;
+  box-sizing: inherit;
+}
+
+.l-footer {
+  background-color: #000;
+  padding: 3rem;
 }
 
 .l-constrain {
-  padding-left: 2rem;
-  padding-right: 2rem;
   margin-left: auto;
   margin-right: auto;
+  max-width: 101.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.l-header__primary {
+.l-constrain--narrow {
+  max-width: 82.5rem;
+  /* width: 500px; */
+}
+
+.l-footer__top {
   display: flex;
-  position: relative;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
-.l-header__logo {
-  padding-right: 15%;
-  flex-grow: 0;
+.l-footer__top > * {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.l-footer__top-first {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.l-footer .site-name {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/pnnl-logo-white.svg');
 }
 
 .site-name {
+  height: 138px;
   overflow: hidden;
-  width: 80px;
-  height: 80px;
+  width: 138px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   display: block;
-  background-image: url('https://www.pnnl.gov/themes/gesso/images/pnnl-logo.svg');
+  /* background-image: url('https://www.pnnl.gov/themes/gesso/images/pnnl-logo-white.svg'); */
 }
 
 .site-name__text {
   visibility: hidden;
 }
 
-.l-header__primary-right {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
+.l-footer__top-second {
+  flex-basis: 384px;
+  max-width: 384px;
 }
 
-.l-header__utility {
-  /* -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end; */
-  display: flex;
-  /* -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; */
-  /* -webkit-box-pack: end; */
-  /* -ms-flex-pack: end; */
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
-.menu--utility {
-  display: block;
-  list-style-type: none;
+.menu {
   margin: 0;
   padding: 0;
+  list-style-type: none;
+}
+
+.menu--footer {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.menu--footer .menu__subnav {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 0.75em;
 }
 
 .menu__item {
-  border-right: 1px solid #63666b;
-  display: block;
-  float: left;
-  line-height: 1;
-  padding: 3px 15px;
+  flex-basis: 50%;
+  margin-bottom: 0;
+  max-width: 50%;
 }
 
-.menu__item_wo-border {
+.menu--footer > .menu__item {
+  padding: 0 1.5rem;
+}
+
+.menu--footer > .menu__item > .menu__link {
+  color: #fff;
   display: block;
-  float: left;
-  line-height: 1;
-  padding: 3px 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.menu--footer .menu__subnav .menu__item {
+  margin-bottom: 1em;
+}
+
+.menu--footer .menu__subnav .menu__link {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.l-footer__top-third {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: right;
+}
+.l-footer__subscribe::before {
+  color: white;
+  font-size: 0.8125rem;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3C!--%20Generated%20by%20IcoMoon.io%20--%3E%0A%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%3Ctitle%3Eenvelope%3C%2Ftitle%3E%0A%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M14.5%202h-13c-0.825%200-1.5%200.675-1.5%201.5v10c0%200.825%200.675%201.5%201.5%201.5h13c0.825%200%201.5-0.675%201.5-1.5v-10c0-0.825-0.675-1.5-1.5-1.5zM6.23%208.6l-4.23%203.295v-7.838l4.23%204.543zM2.756%204h10.488l-5.244%203.938-5.244-3.938zM6.395%208.777l1.605%201.723%201.605-1.723%203.29%204.223h-9.79l3.29-4.223zM9.77%208.6l4.23-4.543v7.838l-4.23-3.295z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin-right: 6px;
+  vertical-align: text-bottom;
+  text-decoration: none;
+}
+
+.l-footer__bottom {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.l-footer__bottom > * {
+  padding: 0 1rem;
+}
+
+.l-footer__bottom-first {
+  -webkit-box-align: end;
+  align-items: flex-end;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.l-footer__bottom-first > * {
+  margin-right: 2rem;
+}
+.l-footer__bottom > * {
+  padding: 0 1rem;
+}
+.l-footer__bottom-first > *:last-child {
+  margin-right: 0;
+}
+
+.l-footer__logo {
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.l-footer__bottom-second {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 360px;
+  text-align: center;
+}
+
+.copyright {
+  color: #ffffff;
+  font-size: 0.625rem;
+}
+
+.l-footer__bottom-third {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.l-footer__logo--doe {
+  height: 37px;
+  overflow: hidden;
+  width: 131px;
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/doe-logo-white.svg');
+  background-repeat: repeat-x;
+  margin-right: 2rem;
+}
+.l-footer__logo--battelle {
+  height: 25px;
+  overflow: hidden;
+  width: 151px;
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/battelle-logo-white.svg');
+  /* background-position: center center; */
+  background-repeat: no-repeat;
+  /* display: block; */
+  background-size: 151px 25px;
+}
+
+li {
+  display: list-item;
+  /* text-align: justify; */
+}
+
+.menu--social {
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
+
+.menu__item {
+  margin-bottom: 0;
+}
+
+.menu--social .menu--item {
+  padding: 0 5px;
+}
+
+.menu__link--text {
+  visibility: hidden;
+}
+
+.menu--social .menu__link {
+  color: transparent;
+  font: 0/0 a;
+  height: 40px;
+  text-shadow: none;
+  width: 40px;
+  display: block;
+  transition: all 250ms ease-out;
+  position: relative;
+}
+
+.menu__link--youtube {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/social-icon-youtube--white.svg');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+.menu__link--facebook {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/social-icon-facebook--white.svg');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+.menu__link--twitter {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/social-icon-twitter--white.svg');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+.menu__link--instagram {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/social-icon-instagram--white.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px 39px;
+}
+.menu__link--linkedin {
+  background-image: url('https://www.pnnl.gov/themes/gesso/images/social-icon-linkedin--white.svg');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+.menu--footer > .menu__item > .menu__link {
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.menu--footer .menu__subnav {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-top: 0.75em;
+}
+.menu--footer .menu__subnav .menu__item {
+  margin-bottom: 1em;
 }
 
 .menu__link {
@@ -105,52 +300,4 @@
   font-weight: 600;
   letter-spacing: 0.06rem;
   text-transform: uppercase;
-}
-
-.l-header__search {
-  padding-top: 1rem;
-  margin-left: 1.5rem;
-}
-
-.site-search {
-  display: flex;
-  line-height: 1;
-  width: 250px;
-}
-
-.form {
-  display: flex;
-  line-height: 1;
-  width: 250px;
-}
-
-.textfield {
-  background: #fff;
-  border: 0;
-  border-bottom: 1px solid #bebeb7;
-  border-left: 1px solid #bebeb7;
-  color: #63666b;
-  font-size: 0.625rem;
-  font-weight: 600;
-  height: 25px;
-  letter-spacing: 0.06rem;
-  margin: 0;
-  padding: 0 0.5rem;
-  width: 100%;
-}
-
-.submit {
-  color: transparent;
-  font: 0/0 a;
-  height: 25px;
-  text-shadow: none;
-  width: 25px;
-  background-image: linear-gradient(transparent, transparent),
-    url(data:image/svg+xml;charset=utf-8,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2225%22%20height%3D%2225%22%20viewBox%3D%220%200%2025%2025%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3Esearch%3C%2Ftitle%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M10.14%2C14.26A4.12%2C4.12%2C0%2C1%2C0%2C6%2C10.14%2C4.13%2C4.13%2C0%2C0%2C0%2C10.14%2C14.26Zm5.49%2C0%2C4.55%2C4.55-1.37%2C1.37-4.55-4.55V14.9L14%2C14.64a6%2C6%2C0%2C0%2C1-9.82-4.5%2C5.94%2C5.94%2C0%2C1%2C1%2C11.88%2C0A5.81%2C5.81%2C0%2C0%2C1%2C14.64%2C14l.26.26Z%22%2F%3E%3C%2Fsvg%3E);
-  background-color: #63666b;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  border: 0;
-  cursor: pointer;
-  padding: 0;
 }

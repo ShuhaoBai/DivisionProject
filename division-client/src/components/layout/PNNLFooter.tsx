@@ -4,9 +4,12 @@ import styles from '../../styles/pnnlFooter.module.css';
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export default function PNNLFooter() {
   return (
-    <div className={styles['.wrapper']}>
+    <div className={styles['.layout-container']}>
       <footer className={styles['l-footer']}>
-        <div className={styles['l-constrain']}>
+        {/* <div className={styles['l-constrain']}> */}
+        <div
+          className={`${styles['l-constrain']} ${styles['l-constrain--narrow']}`}
+        >
           <div className={styles['l-footer__top']}>
             <div className={styles['l-footer__top-first']}>
               <a
@@ -19,10 +22,16 @@ export default function PNNLFooter() {
               </a>
             </div>
             <div className={styles['l-footer__top-second']}>
-              <ul className={styles['menu--footer']}>
-                <li className={styles['menu__item']}>
-                  <span className={styles['menu__link']}>GET IN TOUCH</span>
-                  <ul className={styles['menu__subnav']}>
+              <ul className={`${styles['menu']} ${styles['menu--footer']}`}>
+                <li
+                  className={`${styles['menu__item']} ${styles['has-subnav']}`}
+                >
+                  <span
+                    className={`${styles['menu__link']} ${styles['has-subnav']}`}
+                  >
+                    GET IN TOUCH
+                  </span>
+                  <ul className={`${styles['menu']} ${styles['menu__subnav']}`}>
                     <li className={styles['menu__item']}>
                       <a
                         href="/contacts"
@@ -71,9 +80,15 @@ export default function PNNLFooter() {
                     </li>
                   </ul>
                 </li>
-                <li className={styles['menu__item']}>
-                  <span className={styles['menu__link']}>Research</span>
-                  <ul className={styles['menu_subnav']}>
+                <li
+                  className={`${styles['menu__item']} ${styles['has-subnav']}`}
+                >
+                  <span
+                    className={`${styles['menu__link']} ${styles['has-subnav']}`}
+                  >
+                    Research
+                  </span>
+                  <ul className={`${styles['menu']} ${styles['menu__subnav']}`}>
                     <li className={styles['menu__item']}>
                       <a
                         href="/scientific-discovery"
@@ -112,7 +127,7 @@ export default function PNNLFooter() {
                 href="https://share.hsforms.com/180060/2b30bb4f-b509-42d4-a9d3-082607e9cacf/?__hstc=249664665.6ddd82deffe41f94170294c57e6a3dac.1623874614510.1624043149694.1624048616767.10&amp;__hssc=249664665.12.1624048616767&amp;__hsfp=1399174360"
                 className={styles['l-footer__subscribe']}
               >
-                Subscribe to PNNL News
+                <span> </span>Subscribe to PNNL News
               </a>
             </div>
           </div>
@@ -120,63 +135,69 @@ export default function PNNLFooter() {
             <div className={styles['l-footer__bottom-first']}>
               <a
                 href="https://www.energy.gov/"
-                className={styles['l-footer__logo']}
+                className={`${styles['l-footer__logo']} ${styles['l-footer__logo--doe']}`}
               >
-                Department of Energy Logo
+                <span className={styles['menu__link--text']}>
+                  Department of Energy Logo
+                </span>
               </a>
               <a
                 href="https://www.battelle.org/"
-                className={styles['l-footer__logo']}
+                className={styles['l-footer__logo--battelle']}
               >
-                Battelle Logo
+                <span className={styles['menu__link--text']}>
+                  Battelle Logo
+                </span>
               </a>
             </div>
-            <div className="l-footer__bottom-second">
-              <div className="copyright">
+            <div className={styles['l-footer__bottom-second']}>
+              <div className={styles['copyright']}>
                 Pacific Northwest National Laboratory (PNNL) is managed and
                 operated by Battelle for the Department of Energy
               </div>
             </div>
-            <div className="l-footer__bottom-third">
-              <ul className="menu menu--social">
-                <li className="menu__item">
+            <div className={styles['l-footer__bottom-third']}>
+              <ul className={`${styles['menu']} ${styles['menu--social']}`}>
+                <li className={styles['menu--item']}>
                   <a
                     href="http://www.youtube.com/user/PNNLgov"
-                    className="menu__link--youtube menu__link"
+                    className={`${styles['menu__link--youtube']} ${styles['menu__link']}`}
                   >
-                    YouTube
+                    <span className={styles['menu__link--text']}>Youtube</span>
                   </a>
                 </li>
-                <li className="menu__item">
+                <li className={styles['menu--item']}>
                   <a
                     href="http://www.facebook.com/PNNLgov"
-                    className="menu__link--facebook menu__link"
+                    className={`${styles['menu__link--facebook']} ${styles['menu__link']}`}
                   >
-                    Facebook
+                    <span className={styles['menu__link--text']}>Facebook</span>
                   </a>
                 </li>
-                <li className="menu__item">
+                <li className={styles['menu--item']}>
                   <a
                     href="http://twitter.com/PNNLab"
-                    className="menu__link--twitter menu__link"
+                    className={`${styles['menu__link--twitter']} ${styles['menu__link']}`}
                   >
-                    Twitter
+                    <span className={styles['menu__link--text']}>Twitter</span>
                   </a>
                 </li>
-                <li className="menu__item">
+                <li className={styles['menu--item']}>
                   <a
                     href="https://www.instagram.com/pnnlab"
-                    className="menu__link--instagram menu__link"
+                    className={`${styles['menu__link--instagram']} ${styles['menu__link']}`}
                   >
-                    Instagram
+                    <span className={styles['menu__link--text']}>
+                      Instagram
+                    </span>
                   </a>
                 </li>
-                <li className="menu__item">
+                <li className={styles['menu--item']}>
                   <a
                     href="https://www.linkedin.com/company/pacific-northwest-national-laboratory"
-                    className="menu__link--linkedin menu__link"
+                    className={`${styles['menu__link--linkedin']} ${styles['menu__link']}`}
                   >
-                    LinkedIn
+                    <span className={styles['menu__link--text']}>LinkedIn</span>
                   </a>
                 </li>
               </ul>
