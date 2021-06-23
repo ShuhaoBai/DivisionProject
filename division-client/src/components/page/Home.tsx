@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from '../../models/Post';
 import CarouselCore from '../carousel/CarouselCore';
+import ListCore from '../list/ListCore';
 import {
   withStyles,
   WithStyles,
@@ -13,6 +14,7 @@ const styles = ({ spacing, typography }: Theme) =>
     container: {
       marginTop: 200,
       margin: 0,
+      paddingBottom: 463,
     },
     root: {
       marginTop: spacing(6),
@@ -38,22 +40,13 @@ export interface IHomeState {
   isLoading: boolean;
 }
 class Home extends React.Component<IHomeProps, IHomeState> {
-  constructor(props: Readonly<IHomeProps>) {
-    super(props);
-    this.state = {
-      isLoading: false,
-    };
-  }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
-    const { isLoading } = this.state;
     const { classes, postContent } = this.props;
-    if (isLoading) {
-      return <p>Loading Home ...</p>;
-    }
     return (
       <div className={classes.container}>
-        <CarouselCore postContent={postContent} />
+        <CarouselCore postContent={postContent.slice(0, 3)} />
+        <ListCore postContent={postContent} />
       </div>
     );
   }

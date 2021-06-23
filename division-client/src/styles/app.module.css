@@ -1,3 +1,28 @@
 .root {
   margin-top: 150px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.carousel_container {
+  margin-bottom: 1500px;
+}
+
+.carousel_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  width: 700px;
+  height: 500px;
+}
+
+.carousel_content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 50px;
 }

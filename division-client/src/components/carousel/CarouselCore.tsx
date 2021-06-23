@@ -10,7 +10,7 @@ export interface ICarouselCoreProps {
 const CarouselCore: React.SFC<ICarouselCoreProps> = (props) => {
   const { postContent } = props;
   return (
-    <Carousel animation={'slide'}>
+    <Carousel animation={'slide'} fullHeightHover={true}>
       {postContent.map((post, i) => (
         <CarouselContent post={post} key={i} />
       ))}

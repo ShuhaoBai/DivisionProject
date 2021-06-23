@@ -4,11 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useObserver } from 'mobx-react';
 import Home from './page/Home';
 import ProjectContent from './page/ProjectContent';
-import Layout from './layout/Layout';
 import { UseStyles } from 'styles/utilityTypes';
 import { Route, Switch } from 'react-router-dom';
 import Post from '../models/Post';
 import axios from 'axios';
+import PNNLHeader from './layout/PNNLHeader';
+import PNNLFooter from './layout/PNNLFooter';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useStyles = makeStyles(() => ({
@@ -16,6 +17,12 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    height: '100vh',
+    minHeight: '100%',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   buttonBar: {
     '& button': {
@@ -44,17 +51,17 @@ export default function ComponentName(
     fetchData();
   }, []);
   return useObserver(() => (
-    <Layout>
-      <div className={clsx(classes.root, className)}>
-        <Switch>
-          <Route exact path="/">
-            <Home postContent={allData} />
-          </Route>
-          <Route exact path="/project/:id">
-            <ProjectContent project={allData} />
-          </Route>
-        </Switch>
-      </div>
-    </Layout>
+    <div className={clsx(classes.root, className)}>
+      <PNNLHeader />
+      <Switch>
+        <Route exact path="/">
+          <Home postContent={allData} />
+        </Route>
+        <Route exact path="/project/:id">
+          <ProjectContent project={allData} />
+        </Route>
+      </Switch>
+      <PNNLFooter />
+    </div>
   ));
 }
