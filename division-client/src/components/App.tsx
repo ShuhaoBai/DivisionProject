@@ -1,16 +1,14 @@
-// NPM packages
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-// import { Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useObserver } from 'mobx-react';
 import Home from './page/Home';
-import Posts from './posts/Posts';
+import ProjectContent from './page/ProjectContent';
 import Layout from './layout/Layout';
-// All other imports
-// import { useServices } from 'services';
 import { UseStyles } from 'styles/utilityTypes';
-import DoubleItButton from './DoubleItButton';
+import { Route, Switch } from 'react-router-dom';
+import Post from '../models/Post';
+import axios from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useStyles = makeStyles(() => ({
@@ -35,12 +33,27 @@ export default function ComponentName(
 ): React.ReactElement | null {
   const { className } = props;
   const classes = useStyles(props);
+  const [allData, setAllData] = useState<Post[]>([]);
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    const fetchData = async () => {
+      const result = await axios('/wp-json/wp/v2/carousel?_embed');
+      setAllData(result.data);
+    };
+
+    fetchData();
+  }, []);
   return useObserver(() => (
     <Layout>
       <div className={clsx(classes.root, className)}>
-        <Home />
-        <Posts />
-        <DoubleItButton />
+        <Switch>
+          <Route exact path="/">
+            <Home postContent={allData} />
+          </Route>
+          <Route exact path="/project/:id">
+            <ProjectContent project={allData} />
+          </Route>
+        </Switch>
       </div>
     </Layout>
   ));

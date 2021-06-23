@@ -1,6 +1,7 @@
 .layout-container {
-  font-size: larger;
   border-top: 8x solid #d77900;
+  position: fixed;
+  width: 100%;
 }
 
 .border {

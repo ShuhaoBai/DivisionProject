@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchWpCarouselsContent } from '../../services/FetchService';
 import Post from '../../models/Post';
 import CarouselCore from '../carousel/CarouselCore';
 import {
@@ -11,6 +10,10 @@ import {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const styles = ({ spacing, typography }: Theme) =>
   createStyles({
+    container: {
+      marginTop: 200,
+      margin: 0,
+    },
     root: {
       marginTop: spacing(6),
     },
@@ -29,43 +32,29 @@ const styles = ({ spacing, typography }: Theme) =>
 
 export interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
+  postContent: Post[];
 }
 export interface IHomeState {
-  postContent: Post[];
   isLoading: boolean;
 }
-
 class Home extends React.Component<IHomeProps, IHomeState> {
   constructor(props: Readonly<IHomeProps>) {
     super(props);
     this.state = {
-      postContent: [],
       isLoading: false,
     };
   }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  componentDidMount() {
-    this.setState({
-      isLoading: true,
-    });
-    fetchWpCarouselsContent().then((result) =>
-      this.setState({
-        postContent: result,
-        isLoading: false,
-      })
-    );
-  }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
-    const { postContent, isLoading } = this.state;
+    const { isLoading } = this.state;
+    const { classes, postContent } = this.props;
     if (isLoading) {
       return <p>Loading Home ...</p>;
     }
     return (
-      <React.Fragment>
+      <div className={classes.container}>
         <CarouselCore postContent={postContent} />
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -1,3 +1,10 @@
+.layout-container {
+  /* display: block; */
+  /* box-sizing: inherit; */
+  position: fixed;
+  bottom: 0px;
+}
+
 a {
   background-color: transparent;
   color: white;
@@ -10,11 +17,6 @@ h1 {
   font-weight: 400;
   letter-spacing: -2px;
   margin-bottom: 0.5em;
-}
-
-.layout-container {
-  display: block;
-  box-sizing: inherit;
 }
 
 .l-footer {

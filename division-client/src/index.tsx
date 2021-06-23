@@ -12,7 +12,7 @@ import { ServicesProvider } from 'services';
 import DummyService from 'services/DummyService';
 import createMuiTheme from 'styles/createMuiTheme';
 import * as serviceWorker from './serviceWorker';
-
+import { BrowserRouter } from 'react-router-dom';
 const theme = createMuiTheme();
 
 const services: Services = {
@@ -21,12 +21,14 @@ const services: Services = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
-      <ServicesProvider services={services}>
-        <App />
-      </ServicesProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <ServicesProvider services={services}>
+          <App />
+        </ServicesProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
