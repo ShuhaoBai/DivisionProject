@@ -27,6 +27,11 @@ const useStyles = makeStyles(() => ({
       marginRight: '16px',
     },
   },
+  outerWrapper: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
 }));
 
 export interface ComponentNameProps extends UseStyles<typeof useStyles> {
@@ -49,7 +54,7 @@ export default function ComponentName(
     fetchData();
   }, []);
   return useObserver(() => (
-    <>
+    <div className={classes.outerWrapper}>
       <div className={clsx(classes.rootA, className)}>
         <PNNLHeader />
         <Switch>
@@ -62,6 +67,6 @@ export default function ComponentName(
         </Switch>
       </div>
       <PNNLFooter />
-    </>
+    </div>
   ));
 }

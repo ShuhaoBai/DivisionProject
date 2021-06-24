@@ -34,20 +34,22 @@ class ProjectContent extends React.Component<
             project.map((p) => {
               if (p.id.toString() === location.pathname.split('/').pop()) {
                 return (
-                  <div className="carousel_container">
+                  <div className={styles['carousel_container']}>
                     <h1>{p.title.rendered}</h1>
                     <img
                       className={styles['carousel_img']}
                       src={p._embedded['wp:featuredmedia'][0].source_url}
                       alt={p.title.rendered}
                     />
+                    <p
+                      className={styles['excerpt']}
+                      dangerouslySetInnerHTML={{ __html: p.excerpt.rendered }}
+                    />
                     <div className={styles['carousel_content']}>
-                      <p>
-                        {p.content.rendered.replace(
-                          /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
-                          ''
-                        )}
-                      </p>
+                      <div
+                        className={styles['carousel_content_inner']}
+                        dangerouslySetInnerHTML={{ __html: p.content.rendered }}
+                      ></div>
                     </div>
                   </div>
                 );

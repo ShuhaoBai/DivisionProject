@@ -17,10 +17,6 @@ const useStyles = makeStyles({
     height: 600,
     maxWidth: '700',
   },
-  link: {
-    color: 'black',
-    marginLeft: 150,
-  },
   layer: {
     position: 'absolute',
     top: '82%',

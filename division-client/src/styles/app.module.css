@@ -1,6 +1,9 @@
 .root {
   margin-top: 150px;
-  padding-bottom: 50px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -8,7 +11,9 @@ h1 {
 }
 
 .carousel_container {
-  margin-bottom: 1500px;
+  width: auto;
+
+  /* margin-bottom: auto; */
 }
 
 .carousel_img {
@@ -20,9 +25,43 @@ h1 {
   height: 500px;
 }
 
-.carousel_content {
+.excerpt {
+  margin-left: 10px;
+  width: 700px;
+  font-style: italic;
+}
+
+.carousel_content > * {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel_content > * {
+  width: 700px;
+}
+
+.carousel_content a {
+  color: black;
+  text-decoration: underline;
+}
+
+.carousel_content img {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  margin-top: 50px;
+  width: 700px;
+  height: 500px;
+}
+.carousel_content figcaption {
+  text-align: center;
+}
+
+.carousel_content p {
+  margin-left: 10px;
 }

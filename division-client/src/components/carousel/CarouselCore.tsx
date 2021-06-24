@@ -2,19 +2,28 @@ import React from 'react';
 import Post from '../../models/Post';
 import Carousel from 'react-material-ui-carousel';
 import CarouselContent from './CarouselContent';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+  carouselCoreWrapper: {
+    marginBottom: '40px',
+  },
+});
 export interface ICarouselCoreProps {
   postContent: Post[];
 }
 
 const CarouselCore: React.SFC<ICarouselCoreProps> = (props) => {
   const { postContent } = props;
+  const classes = useStyles();
   return (
-    <Carousel animation={'slide'} fullHeightHover={true}>
-      {postContent.map((post, i) => (
-        <CarouselContent post={post} key={i} />
-      ))}
-    </Carousel>
+    <div className={classes.carouselCoreWrapper}>
+      <Carousel animation={'slide'} fullHeightHover={true}>
+        {postContent.map((post, i) => (
+          <CarouselContent post={post} key={i} />
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
