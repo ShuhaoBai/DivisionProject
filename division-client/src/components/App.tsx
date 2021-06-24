@@ -13,12 +13,10 @@ import PNNLFooter from './layout/PNNLFooter';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useStyles = makeStyles(() => ({
-  root: {
+  rootA: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '100vh',
-    minHeight: '100%',
     top: 0,
     left: 0,
     right: 0,
@@ -51,17 +49,19 @@ export default function ComponentName(
     fetchData();
   }, []);
   return useObserver(() => (
-    <div className={clsx(classes.root, className)}>
-      <PNNLHeader />
-      <Switch>
-        <Route exact path="/">
-          <Home postContent={allData} />
-        </Route>
-        <Route exact path="/project/:id">
-          <ProjectContent project={allData} />
-        </Route>
-      </Switch>
+    <>
+      <div className={clsx(classes.rootA, className)}>
+        <PNNLHeader />
+        <Switch>
+          <Route exact path="/">
+            <Home postContent={allData} />
+          </Route>
+          <Route exact path="/project/:id">
+            <ProjectContent project={allData} />
+          </Route>
+        </Switch>
+      </div>
       <PNNLFooter />
-    </div>
+    </>
   ));
 }
