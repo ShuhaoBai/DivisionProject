@@ -7,8 +7,8 @@ import 'mobx-react-lite/batchingForReactDom';
 
 // All other imports
 import App from 'components/App';
-import Services from 'services/Services';
-import { ServicesProvider } from 'services';
+import Services from 'services/Services'; // {NotesStore}
+import { ServicesProvider } from 'services'; // RootStateContext
 import DummyService from 'services/DummyService';
 import createMuiTheme from 'styles/createMuiTheme';
 import * as serviceWorker from './serviceWorker';

@@ -35,7 +35,7 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
   return (
     <div>
       {postContent.map((p) => (
-        <List className={classes.listRoot}>
+        <List className={classes.listRoot} key={p.id}>
           <ListItem alignItems="flex-start">
             <ListItemAvatar>
               <Avatar

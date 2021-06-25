@@ -1,21 +1,15 @@
+//NoteStore
 import { observable, action } from 'mobx';
-
+import Post from '../models/Post';
+import { fetchWpCarouselsContent } from '../services/FetchService';
 export default class DummyService {
   @observable
-  dummyValue: number = 0;
+  dummyAllData: Post[] = [];
 
   @action
-  increment = (): void => {
-    this.dummyValue++;
-  };
-
-  @action
-  decrement = (): void => {
-    this.dummyValue--;
-  };
-
-  @action
-  multiplyBy = (scalingFactor: number): void => {
-    this.dummyValue *= scalingFactor;
+  fetchDummyAllData = (): void => {
+    fetchWpCarouselsContent().then(
+      (dummyAllData: Post[]) => (this.dummyAllData = dummyAllData)
+    );
   };
 }

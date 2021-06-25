@@ -42,7 +42,7 @@ export interface ICarouselContentProps {
 const CarouselContent: React.SFC<ICarouselContentProps> = (props) => {
   const classes = useStyles();
   const { post } = props;
-  console.log(post);
+  // console.log(post);
 
   return (
     <Card className={classes.root}>
