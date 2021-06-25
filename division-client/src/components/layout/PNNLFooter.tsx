@@ -121,7 +121,7 @@ export default function PNNLFooter() {
               href="https://share.hsforms.com/180060/2b30bb4f-b509-42d4-a9d3-082607e9cacf/?__hstc=249664665.6ddd82deffe41f94170294c57e6a3dac.1623874614510.1624043149694.1624048616767.10&amp;__hssc=249664665.12.1624048616767&amp;__hsfp=1399174360"
               className={styles['l-footer__subscribe']}
             >
-              <span> </span>Subscribe to PNNL News
+              <span>Subscribe to PNNL News</span>
             </a>
           </div>
         </div>

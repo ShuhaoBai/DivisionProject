@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
+import { UseStyles } from 'styles/utilityTypes';
 import { makeStyles } from '@material-ui/core/styles';
 import { useObserver } from 'mobx-react';
+import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import clsx from 'clsx';
+import Post from '../models/Post';
 import Home from './page/Home';
 import ProjectContent from './page/ProjectContent';
-import { UseStyles } from 'styles/utilityTypes';
-import { Route, Switch } from 'react-router-dom';
-import Post from '../models/Post';
-import axios from 'axios';
 import PNNLHeader from './layout/PNNLHeader';
 import PNNLFooter from './layout/PNNLFooter';
 
@@ -17,15 +17,6 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  buttonBar: {
-    '& button': {
-      marginRight: '16px',
-    },
   },
   outerWrapper: {
     height: '100%',
