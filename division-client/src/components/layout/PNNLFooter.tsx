@@ -4,7 +4,7 @@ import styles from '../../styles/pnnlFooter.module.css';
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export default function PNNLFooter() {
   return (
-    <footer className={styles['l-footer']}>
+    <div className={styles['l-footer']}>
       <div
         className={`${styles['l-constrain']} ${styles['l-constrain--narrow']}`}
       >
@@ -194,6 +194,6 @@ export default function PNNLFooter() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }

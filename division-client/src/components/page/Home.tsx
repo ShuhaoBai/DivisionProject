@@ -10,6 +10,10 @@ const styles = () =>
       marginTop: 200,
       margin: 0,
       paddingBottom: 80,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   });
 

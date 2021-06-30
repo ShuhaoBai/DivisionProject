@@ -11,16 +11,36 @@ import Post from '../../models/Post';
 import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    container: {
+      textAlign: 'center',
+    },
     listRoot: {
-      display: 'flex',
-      width: '800px',
+      // display: 'flex',
+      display: 'inline-block',
+      width: '1800px',
+      padding: '60px 0px',
     },
     inline: {
-      display: 'inline',
+      display: 'inline-block',
       maxWidth: '300',
+      fontSize: '2rem',
     },
     listItemText: {
       color: 'black',
+      fontSize: '3.5rem',
+    },
+    avatar: {
+      height: '150px',
+      width: '150px',
+      marginRight: '80px',
+    },
+    divider: {
+      marginTop: '80px',
+    },
+    subTitle: {
+      color: 'black',
+      marginTop: '40px',
+      marginBottom: '40px',
     },
   })
 );
@@ -33,22 +53,30 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
   const classes = useStyles();
   const { postContent } = props;
   return (
-    <div>
+    <div className={classes.container}>
+      <div className={classes.subTitle}>
+        <Typography component="span" variant="h2">
+          Featured Projects
+        </Typography>
+      </div>
       {postContent.map((p) => (
         <List className={classes.listRoot} key={p.id}>
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar
-                alt="Remy Sharp"
-                src={
-                  p['_embedded']['wp:featuredmedia'][0]['media_details'].sizes
-                    .thumbnail.source_url
-                }
-              />
-            </ListItemAvatar>
-            <Link to={`/project/${p.id}`}>
+          <Link to={`/project/${p.id}`}>
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar
+                  alt={p.title.rendered}
+                  src={
+                    p['_embedded']['wp:featuredmedia'][0]['media_details'].sizes
+                      .thumbnail.source_url
+                  }
+                  classes={{ root: classes.avatar }}
+                />
+              </ListItemAvatar>
               <ListItemText
-                className={classes.listItemText}
+                classes={{
+                  primary: classes.listItemText,
+                }}
                 primary={p.title.rendered}
                 secondary={
                   <React.Fragment>
@@ -66,10 +94,9 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
                   </React.Fragment>
                 }
               />
-            </Link>
-          </ListItem>
-
-          <Divider variant="inset" component="li" />
+            </ListItem>
+          </Link>
+          <Divider className={classes.divider} variant="inset" component="li" />
         </List>
       ))}
     </div>

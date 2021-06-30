@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    width: 800,
-    height: 600,
+    width: 1800,
+    height: 800,
     position: 'relative',
   },
   media: {
-    height: 600,
+    height: 800,
     maxWidth: '700',
   },
   layer: {
@@ -55,10 +55,10 @@ const CarouselContent: React.SFC<ICarouselContentProps> = (props) => {
           />
           <div className={classes.layer}>
             <div className={classes.textLayer}>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h2" component="h2">
                 {post.title.rendered}
               </Typography>
-              <Typography variant="body2" component="p">
+              <Typography variant="body1" component="p">
                 {post.excerpt.rendered.replace(
                   /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
                   ''

@@ -215,9 +215,10 @@ ul ul {
 }
 
 .l-footer__top-third {
-  display: flex;
+  /* display: flex;
   -webkit-box-pack: center;
   justify-content: center;
+  text-align: right; */
   text-align: right;
   height: 18px;
 }
@@ -288,13 +289,13 @@ ul ul {
 }
 
 .l-footer__bottom-third {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: flex-end;
   text-align: left;
   width: 50%;
   -webkit-box-pack: center;
-  -webkit-box-align: end;
+  -webkit-box-align: end; */
 }
 
 .l-footer__logo--doe {

@@ -13,6 +13,8 @@ import DummyService from 'services/DummyService';
 import createMuiTheme from 'styles/createMuiTheme';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from './utils/ScrollToTop';
+
 const theme = createMuiTheme();
 
 const services: Services = {
@@ -25,6 +27,7 @@ ReactDOM.render(
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <ServicesProvider services={services}>
+          <ScrollToTop />
           <App />
         </ServicesProvider>
       </ThemeProvider>

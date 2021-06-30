@@ -4,7 +4,7 @@
  */
 import React from 'react';
 
-import Services from './Services';
+import Services from './Services'; //Services-DummyService
 
 // A context needs a default value. Constructing the services here is
 // impractical (it should be handled by the client code). To solve this
