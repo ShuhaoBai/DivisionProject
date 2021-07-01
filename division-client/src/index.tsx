@@ -10,12 +10,10 @@ import App from 'components/App';
 import Services from 'services/Services'; // {NotesStore}
 import { ServicesProvider } from 'services'; // RootStateContext
 import DummyService from 'services/DummyService';
-import createMuiTheme from 'styles/createMuiTheme';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollToTop from './utils/ScrollToTop';
-
-const theme = createMuiTheme();
+import theme from './styles/Theme';
 
 const services: Services = {
   dummyService: new DummyService(),

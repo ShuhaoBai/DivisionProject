@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
     },
     listRoot: {
-      // display: 'flex',
-      display: 'inline-block',
+      display: 'flex',
+      flexDirection: 'column',
       width: '1800px',
-      padding: '60px 0px',
+      padding: '40px 0px',
     },
     inline: {
       display: 'inline-block',
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     listItemText: {
       color: 'black',
-      fontSize: '3.5rem',
+      fontSize: '2.5rem',
     },
     avatar: {
       height: '150px',
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: '80px',
     },
     divider: {
-      marginTop: '80px',
+      marginTop: '60px',
     },
     subTitle: {
       color: 'black',
@@ -55,7 +55,7 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.subTitle}>
-        <Typography component="span" variant="h2">
+        <Typography component="span" variant="subtitle1">
           Featured Projects
         </Typography>
       </div>
@@ -90,6 +90,9 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
                         /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
                         ''
                       )}
+                    </Typography>
+                    <Typography variant="body2">
+                      {p.date.slice(0, 10)}
                     </Typography>
                   </React.Fragment>
                 }

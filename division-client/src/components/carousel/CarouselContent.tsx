@@ -15,7 +15,6 @@ const useStyles = makeStyles({
   },
   media: {
     height: 800,
-    maxWidth: '700',
   },
   layer: {
     position: 'absolute',
@@ -42,7 +41,6 @@ export interface ICarouselContentProps {
 const CarouselContent: React.SFC<ICarouselContentProps> = (props) => {
   const classes = useStyles();
   const { post } = props;
-  // console.log(post);
 
   return (
     <Card className={classes.root}>
@@ -55,10 +53,10 @@ const CarouselContent: React.SFC<ICarouselContentProps> = (props) => {
           />
           <div className={classes.layer}>
             <div className={classes.textLayer}>
-              <Typography gutterBottom variant="h2" component="h2">
+              <Typography gutterBottom variant="subtitle2" component="h2">
                 {post.title.rendered}
               </Typography>
-              <Typography variant="body1" component="p">
+              <Typography variant="body2" component="p">
                 {post.excerpt.rendered.replace(
                   /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
                   ''

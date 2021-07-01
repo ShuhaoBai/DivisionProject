@@ -31,10 +31,10 @@ class ProjectContent extends React.Component<
       <React.Fragment>
         <div className={styles['root']}>
           {project &&
-            project.map((p) => {
+            project.map((p, i) => {
               if (p.id.toString() === location.pathname.split('/').pop()) {
                 return (
-                  <div className={styles['carousel_container']}>
+                  <div className={styles['carousel_container']} key={i}>
                     <h1>{p.title.rendered}</h1>
                     <img
                       className={styles['carousel_img']}

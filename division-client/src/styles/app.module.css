@@ -12,8 +12,6 @@ h1 {
 
 .carousel_container {
   width: auto;
-
-  /* margin-bottom: auto; */
 }
 
 .carousel_img {
@@ -21,8 +19,8 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  width: 700px;
-  height: 500px;
+  width: 1000px;
+  height: 800px;
 }
 
 .excerpt {
@@ -40,10 +38,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.carousel_content > * {
-  width: 700px;
+  width: 1000px;
 }
 
 .carousel_content a {
@@ -54,7 +49,7 @@ h1 {
 .carousel_content img {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 70%;
   width: 700px;
   height: 500px;
 }
@@ -64,4 +59,5 @@ h1 {
 
 .carousel_content p {
   margin-left: 10px;
+  font-size: 16px;
 }
