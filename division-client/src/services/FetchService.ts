@@ -56,14 +56,10 @@ export const fetchWpCarouselsContent = async () => {
     const { data } = fetchedWpCarouselsContent;
     console.log(data);
     return data;
-    // console.log(fetchedWpCarouselsContent.data);
-    // return fetchedWpCarouselsContent.data;
   } catch (error) {
     if (error.response) {
       // Request made and server responded
-      // console.log(error.response.data);
-      // console.log(error.response.status);
-      // console.log(error.response.headers);
+      console.log(error.response.data);
     } else if (error.request) {
       // The request was made but no response was received
       console.log(error.request);
@@ -82,14 +78,10 @@ export const fetchWpCarouselsContentById = async (id: string) => {
     const { data } = fetchedWpCarouselsContent;
     console.log(data);
     return data;
-    // console.log(fetchedWpCarouselsContent.data);
-    // return fetchedWpCarouselsContent.data;
   } catch (error) {
     if (error.response) {
       // Request made and server responded
-      // console.log(error.response.data);
-      // console.log(error.response.status);
-      // console.log(error.response.headers);
+      console.log(error.response.data);
     } else if (error.request) {
       // The request was made but no response was received
       console.log(error.request);

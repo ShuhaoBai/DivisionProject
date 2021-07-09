@@ -10,6 +10,8 @@ import Home from './page/Home';
 import ProjectContent from './page/ProjectContent';
 import PNNLHeader from './layout/PNNLHeader';
 import PNNLFooter from './layout/PNNLFooter';
+import ACMDBackground from './layout/ACMDBackground';
+import Demo from './chart/Demo';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const useStyles = makeStyles(() => ({
@@ -22,7 +24,6 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
   },
   footerWrapper: {
-    // position: 'relative',
     width: '100%',
     bottom: '0',
   },
@@ -50,6 +51,7 @@ export default function ComponentName(
   return useObserver(() => (
     <div className={classes.outerWrapper}>
       <PNNLHeader />
+      <ACMDBackground />
       <div className={clsx(classes.rootA, className)}>
         <Switch>
           <Route exact path="/">
@@ -60,6 +62,7 @@ export default function ComponentName(
           </Route>
         </Switch>
       </div>
+      <Demo />
       <footer className={classes.footerWrapper}>
         <PNNLFooter />
       </footer>

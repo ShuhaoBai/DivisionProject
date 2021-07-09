@@ -57,7 +57,8 @@ h1 {
   text-align: center;
 }
 
-.carousel_content p {
+.carousel_content p,
+.carousel_content li {
   margin-left: 10px;
-  font-size: 16px;
+  font-size: 25px;
 }
