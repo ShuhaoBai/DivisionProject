@@ -3,6 +3,9 @@ import Post from '../../models/Post';
 import CarouselCore from '../carousel/CarouselCore';
 import ListCore from '../list/ListCore';
 import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
+import ChartCore from '../chart/ChartCore';
+import YearSelect from '../yearSelect/YearSelect';
+import EntrySelect from '../entrySelect/EntrySelect';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const styles = () =>
@@ -34,6 +37,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         <div className={classes.container}>
           <CarouselCore postContent={postContent.slice(0, 3)} />
           <ListCore postContent={postContent} />
+          <YearSelect />
+          <EntrySelect />
+          <ChartCore />
         </div>
       </div>
     );

@@ -19,6 +19,8 @@ import {
 } from '@devexpress/dx-react-chart';
 import { scaleBand } from '@devexpress/dx-chart-core';
 import { monthlyData as data } from './dataSample';
+import ChartRoot from './ChartRoot';
+import ChartLabel from './ChartLabel';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const styles = () =>
@@ -26,32 +28,14 @@ const styles = () =>
     root: {},
   });
 
-export interface IDemoProps extends WithStyles<typeof styles> {
+export interface IChartCoreProps extends WithStyles<typeof styles> {
   className?: string;
 }
-export interface IDemoState {
+export interface IChartCoreState {
   hover: any;
   tooltipEnabled: boolean;
   tooltipTarget: any;
 }
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const Root = (
-  props: JSX.IntrinsicAttributes &
-    Legend.RootProps & {
-      [x: string]: any;
-      className?: string | undefined;
-      style?: React.CSSProperties | undefined;
-    }
-) => <Legend.Root className="rootComponent" {...props} />;
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const Label = (
-  props: JSX.IntrinsicAttributes &
-    Legend.LabelProps & {
-      [x: string]: any;
-      className?: string | undefined;
-      style?: React.CSSProperties | undefined;
-    }
-) => <Legend.Label className="labelComponent" {...props} />;
 
 //=======tooltip=======
 // const tooltipContentTitleStyle: React.CSSProperties = {
@@ -97,11 +81,11 @@ const Label = (
 // };
 //=======tooltip=======
 
-class Demo extends React.Component<IDemoProps, IDemoState> {
+class ChartCore extends React.Component<IChartCoreProps, IChartCoreState> {
   changeHover: (hover: any) => void;
   changeTooltip: (targetItem: any) => void;
   toggleTooltip: () => void;
-  constructor(props: Readonly<IDemoProps>) {
+  constructor(props: Readonly<IChartCoreProps>) {
     super(props);
     this.state = {
       hover: null,
@@ -137,12 +121,64 @@ class Demo extends React.Component<IDemoProps, IDemoState> {
             valueField="Abstract"
             argumentField="month"
           />
-          <Stack />
-          <Legend
-            position="right"
-            rootComponent={Root}
-            labelComponent={Label}
+          <BarSeries
+            name="Presentation"
+            valueField="Presentation"
+            argumentField="month"
           />
+          <BarSeries
+            name="JournalArticle"
+            valueField="JournalArticle"
+            argumentField="month"
+          />
+          <BarSeries
+            name="Datasets"
+            valueField="Datasets"
+            argumentField="month"
+          />
+          <BarSeries name="Report" valueField="Report" argumentField="month" />
+          <BarSeries
+            name="Conference Proceedings"
+            valueField="ConferenceProceedings"
+            argumentField="month"
+          />
+          <BarSeries name="Other" valueField="Other" argumentField="month" />
+          <BarSeries
+            name="Brochure"
+            valueField="Brochure"
+            argumentField="month"
+          />
+          <BarSeries
+            name="Book Chapter"
+            valueField="BookChapter"
+            argumentField="month"
+          />
+          <BarSeries name="Video" valueField="Video" argumentField="month" />
+          <BarSeries name="Book" valueField="Book" argumentField="month" />
+          <BarSeries
+            name="Exhibit"
+            valueField="Exhibit"
+            argumentField="month"
+          />
+          <BarSeries
+            name="Software"
+            valueField="Software"
+            argumentField="month"
+          />
+          <BarSeries
+            name="Magazine"
+            valueField="Magazine"
+            argumentField="month"
+          />
+
+          <Stack />
+
+          <Legend
+            position="bottom"
+            rootComponent={ChartRoot}
+            labelComponent={ChartLabel}
+          />
+
           <EventTracker />
           <HoverState hover={hover} onHoverChange={this.changeHover} />
           <Tooltip />
@@ -152,4 +188,4 @@ class Demo extends React.Component<IDemoProps, IDemoState> {
     );
   }
 }
-export default withStyles(styles)(Demo);
+export default withStyles(styles)(ChartCore);
