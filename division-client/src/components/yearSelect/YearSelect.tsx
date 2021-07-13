@@ -26,7 +26,8 @@ const YearSelect: React.SFC<IYearSelectProps> = ({ getSelectedYear }) => {
   };
   useEffect(() => {
     getSelectedYear(year);
-  }, [getSelectedYear, year]);
+    // eslint-disable-next-line
+  }, [year]);
   return (
     <div>
       <FormControl className={classes.formControl}>
