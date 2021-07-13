@@ -28,7 +28,7 @@ export interface IHomeProps extends WithStyles<typeof styles> {
 export interface IHomeState {
   isLoading: boolean;
   selectedYear: string;
-  selectedEntries: string[];
+  selectedEntries: Object;
 }
 class Home extends React.Component<IHomeProps, IHomeState> {
   constructor(props: Readonly<IHomeProps>) {
@@ -49,6 +49,15 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     );
   };
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  getSelectedEntries = (entries: Object) => {
+    this.setState(
+      {
+        selectedEntries: entries,
+      },
+      () => console.log(this.state.selectedEntries)
+    );
+  };
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
     const { classes, postContent } = this.props;
     const { isLoading } = this.state;
@@ -63,7 +72,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <YearSelect
             getSelectedYear={(year: string) => this.getSelectedYear(year)}
           />
-          <EntrySelect />
+          <EntrySelect
+            getSelectedEntries={(entries) => this.getSelectedEntries(entries)}
+          />
           <ChartCore />
         </div>
       </div>
