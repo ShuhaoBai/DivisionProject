@@ -27,17 +27,42 @@ export interface IHomeProps extends WithStyles<typeof styles> {
 }
 export interface IHomeState {
   isLoading: boolean;
+  selectedYear: string;
+  selectedEntries: string[];
 }
 class Home extends React.Component<IHomeProps, IHomeState> {
+  constructor(props: Readonly<IHomeProps>) {
+    super(props);
+    this.state = {
+      selectedYear: '',
+      selectedEntries: [],
+      isLoading: false,
+    };
+  }
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  getSelectedYear = (year: string) => {
+    this.setState(
+      {
+        selectedYear: year,
+      },
+      () => alert('You selected' + this.state.selectedYear)
+    );
+  };
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
     const { classes, postContent } = this.props;
+    const { isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
     return (
       <div>
         <div className={classes.container}>
           <CarouselCore postContent={postContent.slice(0, 3)} />
           <ListCore postContent={postContent} />
-          <YearSelect />
+          <YearSelect
+            getSelectedYear={(year: string) => this.getSelectedYear(year)}
+          />
           <EntrySelect />
           <ChartCore />
         </div>

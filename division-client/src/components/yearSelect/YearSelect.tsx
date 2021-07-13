@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -12,7 +12,11 @@ const useStyles = makeStyles({
   },
 });
 
-const YearSelect: React.SFC = (props) => {
+interface IYearSelectProps {
+  getSelectedYear: (year: string) => void;
+}
+
+const YearSelect: React.SFC<IYearSelectProps> = ({ getSelectedYear }) => {
   const classes = useStyles();
   const [year, setYear] = React.useState('2021');
 
@@ -20,6 +24,9 @@ const YearSelect: React.SFC = (props) => {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setYear(event.target.value as string);
   };
+  useEffect(() => {
+    getSelectedYear(year);
+  }, [getSelectedYear, year]);
   return (
     <div>
       <FormControl className={classes.formControl}>
