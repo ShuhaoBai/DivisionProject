@@ -18,7 +18,6 @@ import {
   HoverState,
 } from '@devexpress/dx-react-chart';
 import { scaleBand } from '@devexpress/dx-chart-core';
-import { monthlyData as data } from './dataSample';
 import ChartRoot from './ChartRoot';
 import ChartLabel from './ChartLabel';
 
@@ -30,6 +29,7 @@ const styles = () =>
 
 export interface IChartCoreProps extends WithStyles<typeof styles> {
   className?: string;
+  data: any;
 }
 export interface IChartCoreState {
   hover: any;
@@ -104,13 +104,14 @@ class ChartCore extends React.Component<IChartCoreProps, IChartCoreState> {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
     const { hover } = this.state;
+    const { data } = this.props;
     return (
       <Paper>
         <Chart data={data}>
           <ArgumentScale factory={scaleBand} />
           <ArgumentAxis />
           <ValueAxis />
-          <Title text="Monthly Publications" />
+          <Title text="Division Monthly Publications" />
           <BarSeries
             name="Published"
             valueField="Published"

@@ -6,6 +6,7 @@ import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
 import ChartCore from '../chart/ChartCore';
 import YearSelect from '../yearSelect/YearSelect';
 import EntrySelect from '../entrySelect/EntrySelect';
+import { monthlyData as data } from '../chart/dataSample';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const styles = () =>
@@ -29,6 +30,7 @@ export interface IHomeState {
   isLoading: boolean;
   selectedYear: string;
   selectedEntries: Object;
+  fetchedData: Object | null;
 }
 class Home extends React.Component<IHomeProps, IHomeState> {
   constructor(props: Readonly<IHomeProps>) {
@@ -36,17 +38,27 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     this.state = {
       selectedYear: '',
       selectedEntries: [],
+      fetchedData: data,
       isLoading: false,
     };
   }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  componentDidUpdate(prevProps: any, prevState: { selectedYear: string }) {
+    if (prevState.selectedYear !== this.state.selectedYear) {
+      const reformedData = data.filter((el) => {
+        return el.year === this.state.selectedYear.toString();
+      });
+      this.setState({
+        selectedYear: this.state.selectedYear,
+        fetchedData: reformedData,
+      });
+    }
+  }
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   getSelectedYear = (year: string) => {
-    this.setState(
-      {
-        selectedYear: year,
-      },
-      () => console.log(this.state.selectedYear)
-    );
+    this.setState({
+      selectedYear: year,
+    });
   };
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   getSelectedEntries = (entries: Object) => {
@@ -60,7 +72,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   render() {
     const { classes, postContent } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, fetchedData } = this.state;
     if (isLoading) {
       return <p>Loading...</p>;
     }
@@ -75,7 +87,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <EntrySelect
             getSelectedEntries={(entries) => this.getSelectedEntries(entries)}
           />
-          <ChartCore />
+          <ChartCore data={fetchedData} />
         </div>
       </div>
     );
