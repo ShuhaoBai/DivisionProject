@@ -45,7 +45,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
       {
         selectedYear: year,
       },
-      () => alert('You selected' + this.state.selectedYear)
+      () => console.log(this.state.selectedYear)
     );
   };
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
