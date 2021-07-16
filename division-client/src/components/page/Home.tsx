@@ -7,6 +7,8 @@ import ChartCore from '../chart/ChartCore';
 import YearSelect from '../yearSelect/YearSelect';
 import EntrySelect from '../entrySelect/EntrySelect';
 import { monthlyData as data } from '../chart/dataSample';
+import Entry from '../../models/Entry';
+// import reform from '../../utils/Reform';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const styles = () =>
@@ -29,7 +31,7 @@ export interface IHomeProps extends WithStyles<typeof styles> {
 export interface IHomeState {
   isLoading: boolean;
   selectedYear: string;
-  selectedEntries: Object;
+  selectedEntries: Entry | undefined;
   fetchedData: Object | null;
 }
 class Home extends React.Component<IHomeProps, IHomeState> {
@@ -37,17 +39,30 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     super(props);
     this.state = {
       selectedYear: '',
-      selectedEntries: [],
+      selectedEntries: undefined,
       fetchedData: data,
       isLoading: false,
     };
   }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  componentDidUpdate(prevProps: any, prevState: { selectedYear: string }) {
-    if (prevState.selectedYear !== this.state.selectedYear) {
+  componentDidUpdate(
+    prevProps: any,
+    prevState: { selectedYear: string; selectedEntries: Entry | undefined }
+  ) {
+    //TODO - need to update JSON.stringify() to lodash _.isEqual() to compare objects
+    if (
+      prevState.selectedYear !== this.state.selectedYear ||
+      JSON.stringify(prevState.selectedEntries) !==
+        JSON.stringify(this.state.selectedEntries)
+    ) {
       const reformedData = data.filter((el) => {
         return el.year === this.state.selectedYear.toString();
       });
+      //TODO - modify reformedData with selectedEntries
+      // if (this.state.selectedEntries)
+      //   var newReformedData = reform(reformedData, this.state.selectedEntries);
+
+      console.log(reformedData);
       this.setState({
         selectedYear: this.state.selectedYear,
         fetchedData: reformedData,
@@ -61,7 +76,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     });
   };
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  getSelectedEntries = (entries: Object) => {
+  getSelectedEntries = (entries: Entry) => {
     this.setState(
       {
         selectedEntries: entries,

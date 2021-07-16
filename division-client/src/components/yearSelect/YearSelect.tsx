@@ -18,7 +18,7 @@ interface IYearSelectProps {
 
 const YearSelect: React.SFC<IYearSelectProps> = ({ getSelectedYear }) => {
   const classes = useStyles();
-  const [year, setYear] = React.useState('2021');
+  const [year, setYear] = React.useState('2020');
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {

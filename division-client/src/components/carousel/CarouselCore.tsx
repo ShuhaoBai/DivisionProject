@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   carouselCoreWrapper: {
+    // width: '100%',
     marginBottom: '40px',
   },
 });

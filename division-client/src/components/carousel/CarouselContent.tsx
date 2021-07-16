@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: 800,
+    width: '100%',
   },
   layer: {
     position: 'absolute',
@@ -49,7 +50,7 @@ const CarouselContent: React.SFC<ICarouselContentProps> = (props) => {
           <CardMedia
             className={classes.media}
             image={post._embedded['wp:featuredmedia'][0].source_url}
-            title="Contemplative Reptile"
+            title="Wordpress Content"
           />
           <div className={classes.layer}>
             <div className={classes.textLayer}>

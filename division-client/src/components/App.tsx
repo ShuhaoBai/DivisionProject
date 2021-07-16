@@ -16,8 +16,9 @@ import ACMDBackground from './layout/ACMDBackground';
 const useStyles = makeStyles(() => ({
   outerWrapper: {
     height: '100%',
+    width: '100%',
   },
-  rootA: {
+  pageContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -51,7 +52,7 @@ export default function ComponentName(
     <div className={classes.outerWrapper}>
       <PNNLHeader />
       <ACMDBackground />
-      <div className={clsx(classes.rootA, className)}>
+      <div className={clsx(classes.pageContainer, className)}>
         <Switch>
           <Route exact path="/">
             <Home postContent={allData} />
