@@ -2,7 +2,12 @@ import React from 'react';
 import Post from '../../models/Post';
 import CarouselCore from '../carousel/CarouselCore';
 import ListCore from '../list/ListCore';
-import { withStyles, WithStyles, createStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  WithStyles,
+  createStyles,
+  Theme,
+} from '@material-ui/core/styles';
 import ChartCore from '../chart/ChartCore';
 import YearSelect from '../yearSelect/YearSelect';
 import EntrySelect from '../entrySelect/EntrySelect';
@@ -11,7 +16,7 @@ import Entry from '../../models/Entry';
 // import reform from '../../utils/Reform';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const styles = () =>
+const styles = (theme: Theme) =>
   createStyles({
     container: {
       marginTop: 200,
@@ -19,11 +24,9 @@ const styles = () =>
       paddingBottom: 80,
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
       alignItems: 'center',
     },
   });
-
 export interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
   postContent: Post[];

@@ -2,14 +2,21 @@ import React from 'react';
 import Post from '../../models/Post';
 import Carousel from 'react-material-ui-carousel';
 import CarouselContent from './CarouselContent';
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  carouselCoreWrapper: {
-    // width: '100%',
-    marginBottom: '40px',
-  },
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    carouselCoreWrapper: {
+      marginBottom: '40px',
+      [theme.breakpoints.down('lg')]: {
+        width: '1000px',
+      },
+      [theme.breakpoints.down('md')]: {
+        width: '700px',
+      },
+    },
+  })
+);
 export interface ICarouselCoreProps {
   postContent: Post[];
 }

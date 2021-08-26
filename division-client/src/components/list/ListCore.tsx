@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       width: '1800px',
       padding: '40px 0px',
+      [theme.breakpoints.down('lg')]: {
+        width: '1000px',
+      },
+      [theme.breakpoints.down('md')]: {
+        width: '700px',
+      },
     },
     inline: {
       display: 'inline-block',
@@ -91,7 +97,8 @@ const ListCore: React.SFC<IListCoreeProps> = (props) => {
                         ''
                       )}
                     </Typography>
-                    <Typography variant="body2">
+                    <br></br>
+                    <Typography variant="body2" component="span">
                       {p.date.slice(0, 10)}
                     </Typography>
                   </React.Fragment>

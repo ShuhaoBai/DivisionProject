@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import clsx from 'clsx';
 import Post from '../models/Post';
-import InfoStats from '../models/InfoStats';
+// import InfoStats from '../models/InfoStats';
 import Home from './page/Home';
 import ProjectContent from './page/ProjectContent';
 import PNNLHeader from './layout/PNNLHeader';
@@ -41,11 +41,18 @@ export default function ComponentName(
   const classes = useStyles(props);
   const [allData, setAllData] = useState<{
     postContent: Post[];
-    stats: InfoStats[];
+    // stats: InfoStats[];
   }>({
     postContent: [],
-    stats: [],
+    // stats: [],
   });
+  // const [allData, setAllData] = useState<{
+  //   postContent: Post[];
+  //   stats: InfoStats[];
+  // }>({
+  //   postContent: [],
+  //   stats: [],
+  // });
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     const fetchData = async () => {
@@ -53,10 +60,11 @@ export default function ComponentName(
         '/postcontent/wp-json/wp/v2/carousel?_embed'
       );
       console.log(postResult);
-      const infoStats = await axios('/infostats');
-      console.log(infoStats);
+      // const infoStats = await axios('/infostats');
+      // console.log(infoStats);
       // setAllData({ postContent: postResult.data, stats: infoStats.data });
-      setAllData({ postContent: postResult.data, stats: [] });
+      // setAllData({ postContent: postResult.data, stats: [] });
+      setAllData({ postContent: postResult.data });
     };
 
     fetchData();
